@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"fcntl.h": "c",
+		"queue": "c",
+		"random": "c"
+	}
+}

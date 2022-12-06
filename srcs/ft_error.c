@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 10:04:40 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/05 23:56:40 by wchen            ###   ########.fr       */
+/*   Created: 2022/12/05 19:37:56 by wchen             #+#    #+#             */
+/*   Updated: 2022/12/05 23:02:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "so_long.h"
 
-size_t	ft_strlen(const char *c)
+void ft_error(char *err_msg)
 {
-	size_t	i;
-
-	i = 0;
-	while (*c++ != '\0')
-		i++;
-	return (i);
+	ft_printf(err_msg);
+	exit(EXIT_SUCCESS);
 }
-// #include <string.h>
-// #include <stdio.h>
 
-// int main(void)
-// {
-// 	char * testtext = "";
-// 	printf("the string is %s strlen is %ld \n",testtext,ft_strlen(testtext));
-// 	printf("the string is %s ft_strlen is %ld \n",testtext,strlen(testtext));
-// 	return 0;
-// }

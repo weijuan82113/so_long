@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   wall_valiation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 10:04:40 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/05 23:56:40 by wchen            ###   ########.fr       */
+/*   Created: 2022/12/06 22:09:29 by wchen             #+#    #+#             */
+/*   Updated: 2022/12/06 22:13:40 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "so_long.h"
 
-size_t	ft_strlen(const char *c)
+void	wall_validation(t_game_board *g, char input_chr, int i)
 {
-	size_t	i;
-
-	i = 0;
-	while (*c++ != '\0')
-		i++;
-	return (i);
+	if (i / g -> x == 0 || i / g -> x == g -> y - 1 ||	\
+		i % g -> x == 0 || i % g -> x == g -> x - 1)
+	{
+		if (input_chr != '1')
+			ft_error(WALL_ERR);
+	}
 }
-// #include <string.h>
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	char * testtext = "";
-// 	printf("the string is %s strlen is %ld \n",testtext,ft_strlen(testtext));
-// 	printf("the string is %s ft_strlen is %ld \n",testtext,strlen(testtext));
-// 	return 0;
-// }

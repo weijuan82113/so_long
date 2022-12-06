@@ -6,7 +6,7 @@
 #    By: wchen <wchen@42studen>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/01 00:54:12 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/06 23:06:48 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,15 +34,20 @@ MLX_LIB			=	-L $(MLX_DIR) -lmlx_$(UNAME) -L/usr/X11R6/lib -lX11 -lXext -lm	\
 						 -framework OpenGL -framework AppKit
 
 ##so_long
-# Sl_DIR			=	./srcs/so_long
-# Sl_SRCS			=	$(addprefix $(Sl_DIR),/list_init.c		\
-# 										)
-# SL_OBJS	=	$(SL_SRCS:.c=.o)
+SL_DIR			=	./srcs
+SL_SRCS			=	$(addprefix $(SL_DIR),/map_inital.c			\
+										/ft_error.c				\
+										/object_validation.c	\
+										/wall_valiation.c		\
+										/map_validation.c		\
+										)
+SL_OBJS			=	$(SL_SRCS:.c=.o)
+
 
 all: libft_make mlx_make $(NAME)
 
-$(NAME): $(MINILIBX) $(MAIN_OBJ)
-	$(CC) $(CFLAGS) $(MAIN_OBJ) $(LIBFT_LIB) $(MLX_LIB) -o $@
+$(NAME): $(MINILIBX) $(MAIN_OBJ) $(SL_OBJS)
+	$(CC) $(CFLAGS) $(MAIN_OBJ) $(SL_OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
 
 
 libft_make:
@@ -55,6 +60,7 @@ clean:
 	make -C $(LIBFT_DIR) clean
 	make -C $(MLX_DIR) clean
 	rm -f ${MAIN_OBJ}
+	rm -f ${SL_OBJS}
 
 fclean: clean
 	make -C $(LIBFT_DIR) fclean

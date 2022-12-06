@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 22:27:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/11/30 23:45:41 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/06 00:27:32 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,31 +95,27 @@ char	*get_next_line(int fd)
 }
 
 // # include <stdbool.h>
+// # include <stdio.h>
+// # include <sys/types.h>
+// # include <sys/stat.h>
+// # include <fcntl.h>
 
 // int main(int ac, char **av) {
 // 	size_t i;
+
 //     if (ac != 2) {
 //         fprintf(stderr, "invalid argument");
 //         return 1;
 //     }
 //     int fd1 = open(av[1], O_RDONLY);
-// 	//int fd2 = open(av[2], O_RDONLY);
-// 	//int fd3 = open(av[3], O_RDONLY);
-// 	//printf("fd is %d \n", fd);
 //     i = 0;
 // 	while (true) {
 //         char *s1 = get_next_line(fd1);
-// 		//char *s2 = get_next_line(fd2);
-// 		//char *s3 = get_next_line(fd3);
 // 		printf("%zu:%s \n",i, s1);
-// 		//printf("%zu:%s \n",i, s2);
-// 		//printf("%zu:%s \n",i, s3);
 //         if (s1 == NULL) {
 //             break;
 //         }
 //         free(s1);
-// 		//free(s2);
-// 		//free(s3);
 // 		i ++;
 //     }
 // }
