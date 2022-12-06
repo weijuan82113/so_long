@@ -17,7 +17,7 @@ static void line_valid(char *line, t_game_board *g_board, int y)
 	int 	i;
 
 	i = 0;
-	while (line[i] != '\n')
+	while (line[i] != '\n' && line[i] != '\0')
 	{
 		if(object_validation(line[i], g_board))
 			ft_error(OBJ_ERR);fflush(stdout);
@@ -57,6 +57,12 @@ static void map_arr_create(t_game_board *g)
 			head = head -> next;
 		i ++;
 	}
+	i = 0;
+	while(i < g -> y)
+	{
+		printf("%s\n", g -> map[i]);
+		i ++;
+	}
 }
 
 t_game_board	*game_board_inital(t_game_board *g_board)
@@ -75,6 +81,25 @@ t_game_board	*game_board_inital(t_game_board *g_board)
 	return (g_board);
 }
 
+static void file_name_validation(char *file_name)
+{
+	char	*ext;
+	char	*ber;
+
+	ber = ".ber";
+	ext = ft_strrchr(file_name,'.');
+	if(ext == NULL)
+		ft_error(FILE_EXT_ERR);
+	while (*ext != '\0' && *ber != '\0')
+	{
+		if(*(ext) != *ber)
+			ft_error(FILE_EXT_ERR);
+		ext ++;
+		ber ++;
+	}
+	if (*ext != '\0' || *ber != '\0')
+		ft_error(FILE_EXT_ERR);
+}
 
 void	map_inital(int argc, char **argv, t_game_board *g_board)
 {
@@ -82,10 +107,12 @@ void	map_inital(int argc, char **argv, t_game_board *g_board)
 	char			*line;
 	int				i;
 
-
 	if (argc != 2)
 		ft_error(ARG_ERR);
+	file_name_validation(argv[1]);
 	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		ft_error(FILE_ERR);
 	line = NULL;
 	g_board = game_board_inital(g_board);
 	i = 0;
