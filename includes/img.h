@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   img.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 19:57:38 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/08 23:14:28 by wchen            ###   ########.fr       */
+/*   Created: 2022/12/08 22:04:52 by wchen             #+#    #+#             */
+/*   Updated: 2022/12/09 01:33:39 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#ifndef IMG_H
+# define IMG_H
 
-int main(int argc, char **argv)
-{
-	t_game_board	*g_board;
+# define pl_path "./images/player"
+# define em_path "./images/empty"
+# define ex_path "./images/exit"
+# define wa_path "./images/wall"
+# define co_path "./images/collectible"
 
-	g_board = NULL;
-	g_board = map_initial(argc, argv, g_board);
-	mlx_initial(g_board);
-
-	return (0);
-}
+#endif

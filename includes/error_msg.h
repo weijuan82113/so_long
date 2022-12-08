@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:34:26 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/06 23:55:29 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/09 01:24:37 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 # define EMPTY_ERR			"Error\nThere is no free road in map\n"
 # define NO_WALL_ERR		"Error\nThere is no wall in map\n"
 # define ONE_LINE_ERR		"Error\nThe map is consisted by only one line\n"
+# define MAP_SIZE_ERR		"Error\nThe map is too big\n"
 
 #endif

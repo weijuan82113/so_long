@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   img_lstadd_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 19:57:38 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/08 23:14:28 by wchen            ###   ########.fr       */
+/*   Created: 2022/12/08 22:52:44 by wchen             #+#    #+#             */
+/*   Updated: 2022/12/08 23:22:39 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long.h"
 
-int main(int argc, char **argv)
+void	img_lstadd_back(t_img **head, t_img *new)
 {
-	t_game_board	*g_board;
+	t_img	*tail;
 
-	g_board = NULL;
-	g_board = map_initial(argc, argv, g_board);
-	mlx_initial(g_board);
-
-	return (0);
+	if (!head || !new)
+		return ;
+	else if (!*head)
+		*head = new;
+	else
+	{
+		tail = *head;
+		while(tail -> next != NULL)
+			tail =  tail -> next;
+		tail -> next = new;
+	}
 }

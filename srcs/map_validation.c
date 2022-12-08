@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:04:56 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/06 23:09:24 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/09 01:24:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void	map_validation(t_game_board *g_board)
 {
-	printf("C %d\n", g_board -> collect_count);
-	printf("E %d\n", g_board -> exit_count);
-	printf("P %d\n", g_board -> player_count);
-	printf("0 %d\n", g_board -> empty_count);
-	printf("1 %d\n", g_board -> wall_count);
-
 	if (g_board -> collect_count == 0)
 		ft_error(COLLECTIBLE_ERR);
 	else if (g_board -> exit_count != 1)
@@ -32,4 +26,10 @@ void	map_validation(t_game_board *g_board)
 		ft_error(NO_WALL_ERR);
 	else if (g_board -> y == 1 || g_board -> x == 1)
 		ft_error(ONE_LINE_ERR);
+	if (g_board -> x * 32 > 1920 || g_board -> y * 32 > 1080)
+		ft_error(MAP_SIZE_ERR);
+	else if (g_board -> x * 64 > 1920 ||  g_board -> y * 64 > 1080)
+		g_board -> size = 32;
+	else
+		g_board -> size = 64;
 }

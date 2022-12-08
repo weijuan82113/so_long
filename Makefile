@@ -6,7 +6,7 @@
 #    By: wchen <wchen@42studen>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/06 23:06:48 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/08 23:10:27 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,14 @@ MLX_LIB			=	-L $(MLX_DIR) -lmlx_$(UNAME) -L/usr/X11R6/lib -lX11 -lXext -lm	\
 
 ##so_long
 SL_DIR			=	./srcs
-SL_SRCS			=	$(addprefix $(SL_DIR),/map_inital.c			\
+SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										/ft_error.c				\
 										/object_validation.c	\
 										/wall_valiation.c		\
 										/map_validation.c		\
+										/mlx_initial.c			\
+										/img_lstnew.c			\
+										/img_lstadd_back.c		\
 										)
 SL_OBJS			=	$(SL_SRCS:.c=.o)
 
