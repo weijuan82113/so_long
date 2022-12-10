@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 21:30:12 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/09 01:39:55 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/10 03:16:18 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_img	*img_initial(void *mlx, t_game_board *g)
 	char 	*object;
 	t_img	*img_head;
 
-	object = "PEC01";
+	object = "P0CE1";
 	img_head = NULL;
 	while (*object)
 	{
@@ -57,20 +57,17 @@ static void win_initial(void *mlx, void *win, t_game_board *g, t_img *img_head)
 	}
 }
 
-void mlx_initial(t_game_board *g)
+t_mlx	*mlx_initial(int argc, char **argv)
 {
-	void	*mlx;
-	void	*win;
-	t_img	*img_head;
+	t_mlx	*t_mlx;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, g -> x * g -> size, g -> y * g -> size, "SO_LONG");
-	img_head = img_initial(mlx, g);
-	win_initial(mlx, win, g, img_head);
-	while(img_head != NULL)
-	{
-		printf("the char is %c\n", img_head -> obj);
-		img_head = img_head -> next;
-	}
-	mlx_loop(mlx);
+	t_mlx = malloc(sizeof(*t_mlx));
+	if(!t_mlx)
+		exit(EXIT_FAILURE);
+	t_mlx -> g = map_initial(argc, argv);
+	t_mlx -> mlx = mlx_init();
+	t_mlx -> win = mlx_new_window(t_mlx -> mlx, t_mlx -> g -> x * t_mlx -> g -> size, t_mlx -> g -> y * t_mlx -> g -> size, "SO_LONG");
+	t_mlx -> img_head = img_initial(t_mlx -> mlx, t_mlx -> g);
+	win_initial(t_mlx -> mlx, t_mlx -> win, t_mlx -> g, t_mlx -> img_head);
+	return (t_mlx);
 }

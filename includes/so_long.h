@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/09 01:28:51 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/10 02:22:01 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "error_msg.h"
 # include "so_long.h"
 # include "img.h"
+# include "so_long_const.h"
 # include <mlx.h>
 # include <fcntl.h>
 # include <sys/types.h>
@@ -37,6 +38,7 @@ typedef struct s_game_board
 	int		x;
 	int		y;
 	int		size;
+	int		position;
 }			t_game_board;
 
 typedef struct s_img
@@ -49,13 +51,22 @@ typedef struct s_img
 	struct s_img	*next;
 }				t_img;
 
+typedef struct s_mlx
+{
+	void			*mlx;
+	void			*win;
+	t_img			*img_head;
+	t_game_board	*g;
+}					t_mlx;
 
-t_game_board	*map_initial(int argc, char **argv,t_game_board *g_board);
+t_game_board	*map_initial(int argc, char **argv);
 void			ft_error(char *chr);
 int				object_validation(char input_chr, t_game_board *g_board);
 void			wall_validation(t_game_board *g_board, char input_chr, int i);
 void			map_validation(t_game_board *g_board);
-void			mlx_initial(t_game_board *g_board);
+t_mlx			*mlx_initial(int argc, char **argv);
 t_img			*img_lstnew(void *mlx, char object, int size);
 void			img_lstadd_back(t_img **head, t_img *new);
+int				key_hook(int keycode, t_mlx *t_mlx);
+
 #endif

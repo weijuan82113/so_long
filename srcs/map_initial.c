@@ -53,14 +53,18 @@ static void map_arr_create(t_game_board *g)
 		}
 		wall_validation(g, ((char *)head -> content)[i % g -> x], i);
 		g -> map[i / g -> x][i % g -> x] = ((char *)head -> content)[i % g -> x];
+		if (((char *)head -> content)[i % g -> x] == 'P')
+			g -> position = i;
 		if (i % g -> x == g -> x -1)
 			head = head -> next;
 		i ++;
 	}
 }
 
-static t_game_board	*game_board_inital(t_game_board *g_board)
+static t_game_board	*game_board_inital(void)
 {
+	t_game_board	*g_board;
+
 	g_board = malloc(sizeof(t_game_board));
 	if (!g_board)
 		exit (EXIT_FAILURE);
@@ -72,6 +76,7 @@ static t_game_board	*game_board_inital(t_game_board *g_board)
 	g_board -> x = 0;
 	g_board -> y = 0;
 	g_board -> size = 0;
+	g_board -> position = 0;
 	g_board -> map_head = NULL;
 	return (g_board);
 }
@@ -96,11 +101,12 @@ static void file_name_validation(char *file_name)
 		ft_error(FILE_EXT_ERR);
 }
 
-t_game_board	*map_initial(int argc, char **argv, t_game_board *g_board)
+t_game_board	*map_initial(int argc, char **argv)
 {
 	int				fd;
 	char			*line;
 	int				i;
+	t_game_board	*g_board;
 
 	if (argc != 2)
 		ft_error(ARG_ERR);
@@ -109,7 +115,7 @@ t_game_board	*map_initial(int argc, char **argv, t_game_board *g_board)
 	if (fd < 0)
 		ft_error(FILE_ERR);
 	line = NULL;
-	g_board = game_board_inital(g_board);
+	g_board = game_board_inital();
 	i = 0;
 	while (1)
 	{
