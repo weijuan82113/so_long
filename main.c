@@ -6,25 +6,21 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:57:38 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/11 23:27:58 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/11 23:41:29 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#include "so_long.h"
 
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q so_long");
-// }
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_mlx			*t_mlx;
+	t_mlx	*t_mlx;
 
 	t_mlx = mlx_initial(argc, argv);
-	mlx_key_hook(t_mlx -> win, key_hook, t_mlx);
-	mlx_loop_hook(t_mlx -> mlx, my_loop, t_mlx);
-	mlx_hook(t_mlx -> win, 17, 1L<<17, destroy_hook, t_mlx);
-	mlx_loop(t_mlx -> mlx);
+	mlx_key_hook(t_mlx->win, key_hook, t_mlx);
+	mlx_loop_hook(t_mlx->mlx, my_loop, t_mlx);
+	mlx_hook(t_mlx->win, 17, 1L << 17, destroy_hook, t_mlx);
+	mlx_loop(t_mlx->mlx);
+	system("leak");
 	return (0);
 }
