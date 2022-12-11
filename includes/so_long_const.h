@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 00:35:35 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/10 16:11:50 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/11 22:42:48 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@
 # define RIGHT		4
 # define GAME_OVER	"GAME OVER!!\n"
 # define SUCCEED	"CONGRATULATION!\n SUCCEED!!\n"
-
+# define RED		0x00FF0000
 #endif
