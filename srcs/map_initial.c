@@ -40,7 +40,7 @@ static void map_arr_create(t_game_board *g)
 
 	head = g -> map_head;
 	i = 0;
-	g -> map = malloc(sizeof(char *) * g -> y);
+	g -> map = malloc(sizeof(char *) * (g -> y + 1));
 	if (!g -> map)
 		exit(EXIT_FAILURE);
 	while (head)
@@ -59,6 +59,7 @@ static void map_arr_create(t_game_board *g)
 			head = head -> next;
 		i ++;
 	}
+	g -> map[g -> y] = NULL;
 }
 
 static t_game_board	*game_board_inital(void)
@@ -77,6 +78,7 @@ static t_game_board	*game_board_inital(void)
 	g_board -> y = 0;
 	g_board -> size = 0;
 	g_board -> position = 0;
+	g_board -> step = 0;
 	g_board -> map_head = NULL;
 	return (g_board);
 }

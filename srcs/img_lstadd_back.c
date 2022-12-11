@@ -23,7 +23,7 @@ void	img_lstadd_back(t_img **head, t_img *new)
 	else
 	{
 		tail = *head;
-		while(tail -> next != NULL)
+		while (tail -> next != NULL)
 			tail =  tail -> next;
 		tail -> next = new;
 	}

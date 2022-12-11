@@ -6,7 +6,7 @@
 #    By: wchen <wchen@42studen>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/10 01:21:29 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/11 20:40:36 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,12 @@ SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										/mlx_initial.c			\
 										/img_lstnew.c			\
 										/img_lstadd_back.c		\
+										/win_initial.c			\
 										/key_hook.c				\
+										/my_loop.c				\
+										/game_over.c			\
+										/destroy_hook.c			\
+										/free_all.c				\
 										)
 SL_OBJS			=	$(SL_SRCS:.c=.o)
 

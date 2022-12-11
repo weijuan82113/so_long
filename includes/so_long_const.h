@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 00:35:35 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/10 03:10:30 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/10 16:11:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@
 # define DOWN		2
 # define LEFT		3
 # define RIGHT		4
+# define GAME_OVER	"GAME OVER!!\n"
+# define SUCCEED	"CONGRATULATION!\n SUCCEED!!\n"
 
 #endif

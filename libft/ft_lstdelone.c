@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:39:10 by wchen             #+#    #+#             */
-/*   Updated: 2022/11/09 21:29:11 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/11 22:14:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_lstdelone(t_node *lst, void (*del)(void *))
 	else if (del)
 		del(lst -> content);
 	free(lst);
+	lst = NULL;
 }
 
 // #include <stdio.h>
