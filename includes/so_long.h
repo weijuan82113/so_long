@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/11 18:35:31 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/11 23:13:43 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void			map_validation(t_game_board *g_board);
 t_mlx			*mlx_initial(int argc, char **argv);
 t_img			*img_lstnew(void *mlx, char object, int size);
 void			img_lstadd_back(t_img **head, t_img *new);
-void			win_initial(void *mlx, void *win, t_game_board *g, t_img *img_head);
+void			win_initial(void *mlx, void *win,
+					t_game_board *g, t_img *img_head);
 int				key_hook(int keycode, t_mlx *t_mlx);
 int				my_loop(t_mlx *t_mlx);
 void			game_over(t_mlx *t_mlx, char *exit_msg);

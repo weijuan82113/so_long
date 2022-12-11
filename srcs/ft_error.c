@@ -6,15 +6,14 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:37:56 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/05 23:02:50 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/11 23:03:29 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#include "so_long.h"
 
-void ft_error(char *err_msg)
+void	ft_error(char *err_msg)
 {
 	ft_printf(err_msg);
 	exit(EXIT_SUCCESS);
 }
-

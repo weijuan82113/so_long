@@ -6,11 +6,11 @@
 /*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:13:39 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/11 20:17:27 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/11 23:01:31 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#include "so_long.h"
 
 int	destroy_hook(t_mlx *t_mlx)
 {
