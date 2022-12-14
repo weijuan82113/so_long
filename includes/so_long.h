@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/11 23:13:43 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/14 20:05:53 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_game_board
 	int		player_count;
 	int		empty_count;
 	int		wall_count;
+	t_node	*goal_vertex;
 	int		x;
 	int		y;
 	int		size;
@@ -64,6 +65,7 @@ void			ft_error(char *chr);
 int				object_validation(char input_chr, t_game_board *g_board);
 void			wall_validation(t_game_board *g_board, char input_chr, int i);
 void			map_validation(t_game_board *g_board);
+void			bsq_validation(t_game_board *g_board);
 t_mlx			*mlx_initial(int argc, char **argv);
 t_img			*img_lstnew(void *mlx, char object, int size);
 void			img_lstadd_back(t_img **head, t_img *new);
@@ -74,5 +76,6 @@ int				my_loop(t_mlx *t_mlx);
 void			game_over(t_mlx *t_mlx, char *exit_msg);
 void			free_all(t_mlx *t_mlx);
 int				destroy_hook(t_mlx *t_mlx);
+void			bsq_vertex_intial(t_game_board *g, char obj, int i);
 
 #endif

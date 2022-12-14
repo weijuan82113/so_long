@@ -16,6 +16,10 @@
 		"unordered_map": "c",
 		"vector": "c",
 		"string_view": "c",
-		"cstdlib": "c"
+		"cstdlib": "c",
+		"so_long_const.h": "c",
+		"error_msg.h": "c",
+		"libft.h": "c",
+		"img.h": "c"
 	}
 }
