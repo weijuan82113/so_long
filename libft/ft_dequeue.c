@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 21:48:32 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/15 23:11:26 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:12:56 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	ft_dequeue(t_queue *q)
 	t_node	*temp;
 
 	if (q->front == NULL)
-		return;
+		return ;
 	temp = q->front;
 	q->front = q->front->next;
-	if(q->front == NULL)
+	if (q->front == NULL)
 		q->rear = NULL;
 	ft_lstdelone(temp, free);
 }

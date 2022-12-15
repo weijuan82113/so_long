@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:36:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/15 22:58:43 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:10:53 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		print_unint(unsigned int un_int);
 int		print_x(unsigned int un_int);
 int		print_bx(unsigned int un_int);
 int		print_ptr(unsigned long long uint_ptr);
-t_queue	*ft_create_queue();
+t_queue	*ft_create_queue(void);
 void	ft_enqueue(t_queue *q, void *content);
 void	ft_dequeue(t_queue *q);
 

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 21:41:23 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/15 22:20:58 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:13:19 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void	ft_enqueue(t_queue *q, void *content)
 	temp = ft_lstnew(content);
 	if (q->rear == NULL)
 	{
-		q->front = q->rear = temp;
-		return;
+		q->front = temp;
+		q->rear = temp;
+		return ;
 	}
 	q->rear->next = temp;
 	q->rear = temp;

@@ -6,13 +6,13 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 21:30:24 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/15 22:28:29 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:11:02 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_queue	*ft_create_queue()
+t_queue	*ft_create_queue(void)
 {
 	t_queue	*q;
 

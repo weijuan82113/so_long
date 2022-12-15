@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/15 23:32:08 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:08:01 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 # include <sys/stat.h>
 # include <stdlib.h>
 # include <stdio.h>
+
+typedef struct s_bfs
+{
+	t_queue		*q;
+	int			*start_vertex;
+	int			current_vertex;
+	t_node		*temp;
+	int			*adj_vertex;
+}				t_bfs;
 
 typedef struct s_graph
 {
@@ -85,5 +94,7 @@ void			game_over(t_mlx *t_mlx, char *exit_msg);
 void			free_all(t_mlx *t_mlx);
 int				destroy_hook(t_mlx *t_mlx);
 void			bsq_obj_initial(t_game_board *g, char obj, int i);
+t_graph			*graph_create(int vertex_count, char **map, int x);
+void			edge_initial(t_graph *graph, t_game_board *g);
 
 #endif
