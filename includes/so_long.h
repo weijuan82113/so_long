@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/15 21:01:12 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/15 23:32:08 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_game_board
 	int		player_count;
 	int		empty_count;
 	int		wall_count;
-	t_node	*goal_vertex;
+	t_node	*judge_obj;
 	int		x;
 	int		y;
 	int		size;
@@ -84,6 +84,6 @@ int				my_loop(t_mlx *t_mlx);
 void			game_over(t_mlx *t_mlx, char *exit_msg);
 void			free_all(t_mlx *t_mlx);
 int				destroy_hook(t_mlx *t_mlx);
-void			bsq_vertex_intial(t_game_board *g, char obj, int i);
+void			bsq_obj_initial(t_game_board *g, char obj, int i);
 
 #endif
