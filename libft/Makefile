@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wchen <wchen@42studen>                     +#+  +:+       +#+         #
+#    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2022/12/01 00:27:45 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/15 22:32:10 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,9 @@ SRCS			=ft_lstmap.c					\
 				print_str.c						\
 				print_unint.c					\
 				print_x.c						\
+				ft_create_queue.c				\
+				ft_dequeue.c					\
+				ft_enqueue.c					\
 #	Objects
 OBJS		= $(SRCS:%.c=%.o)
 

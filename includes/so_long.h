@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/14 20:05:53 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/15 21:01:12 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@
 # include <sys/stat.h>
 # include <stdlib.h>
 # include <stdio.h>
+
+typedef struct s_graph
+{
+	int 	num_vertex;
+	t_node	**adj_lsts;
+	int		*visited;
+}			t_graph;
+
 
 typedef struct s_game_board
 {

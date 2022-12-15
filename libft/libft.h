@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:36:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/05 23:18:09 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/15 22:29:48 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ typedef struct s_node
 	void			*content;
 	struct s_node	*next;
 }					t_node;
+
+typedef struct s_queue
+{
+	t_node	*front;
+	t_node	*rear;
+}			t_queue;
 
 typedef struct s_ft_strtrim
 {
@@ -92,5 +98,8 @@ int		print_unint(unsigned int un_int);
 int		print_x(unsigned int un_int);
 int		print_bx(unsigned int un_int);
 int		print_ptr(unsigned long long uint_ptr);
+t_queue	*ft_create_queue();
+void	ft_enqueue(t_queue *q, void *content);
+void	ft_dequeue(t_queue *q);
 
 #endif
