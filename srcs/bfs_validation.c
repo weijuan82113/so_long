@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bsq_validation.c                                   :+:      :+:    :+:   */
+/*   bfs_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/16 01:15:06 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:21:01 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	is_playable(t_node *obj, int *visited)
 	}
 }
 
-void	bsq_validation(t_game_board *g)
+void	bfs_validation(t_game_board *g)
 {
 	t_graph	*graph;
 	char	**map;

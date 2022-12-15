@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bsq_obj_initial.c                                  :+:      :+:    :+:   */
+/*   bfs_obj_initial.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 19:44:34 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/16 01:15:30 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:20:11 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	obj_push(t_game_board *g, int i)
 		ft_lstadd_back(&g->judge_obj, ft_lstnew(content));
 }
 
-void	bsq_obj_initial(t_game_board *g, char obj, int i)
+void	bfs_obj_initial(t_game_board *g, char obj, int i)
 {
 	if (obj == 'P')
 		g->position = i;

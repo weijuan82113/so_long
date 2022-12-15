@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/16 00:54:56 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/16 01:21:13 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										/object_validation.c	\
 										/wall_valiation.c		\
 										/map_validation.c		\
-										/bsq_validation.c		\
+										/bfs_validation.c		\
 										/mlx_initial.c			\
 										/img_lstnew.c			\
 										/img_lstadd_back.c		\
@@ -50,7 +50,7 @@ SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										/game_over.c			\
 										/destroy_hook.c			\
 										/free_all.c				\
-										/bsq_obj_initial.c		\
+										/bfs_obj_initial.c		\
 										/graph_create.c			\
 										/edge_initial.c			\
 										)

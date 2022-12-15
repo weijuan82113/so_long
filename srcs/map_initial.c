@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:24:37 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/16 01:14:12 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/16 01:22:27 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	map_arr_create(t_game_board *g)
 		}
 		wall_validation(g, ((char *)head->content)[i % g->x], i);
 		g->map[i / g->x][i % g->x] = ((char *)head->content)[i % g->x];
-		bsq_obj_initial(g, g->map[i / g->x][i % g->x], i);
+		bfs_obj_initial(g, g->map[i / g->x][i % g->x], i);
 		if (i % g->x == g->x - 1)
 			head = head->next;
 		i++;
@@ -126,6 +126,6 @@ t_game_board	*map_initial(int argc, char **argv)
 	}
 	map_validation(g_board);
 	map_arr_create(g_board);
-	bsq_validation(g_board);
+	bfs_validation(g_board);
 	return (g_board);
 }
