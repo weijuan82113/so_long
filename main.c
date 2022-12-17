@@ -6,11 +6,16 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:57:38 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/13 21:26:42 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/17 14:02:15 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q so_long");
+}
 
 int	main(int argc, char **argv)
 {

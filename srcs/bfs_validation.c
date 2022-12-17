@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/16 01:21:01 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/17 13:52:40 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	bfs(t_graph *graph, int start)
 		while (bfs.temp)
 		{
 			bfs.adj_vertex = malloc(sizeof(int));
-			bfs.adj_vertex = bfs.temp->content;
+			*bfs.adj_vertex = *(int *)bfs.temp->content;
 			if (graph->visited[*bfs.adj_vertex] == 0)
 			{
 				graph->visited[*bfs.adj_vertex] = 1;
@@ -38,6 +38,7 @@ void	bfs(t_graph *graph, int start)
 		}
 		ft_dequeue(bfs.q);
 	}
+	free (bfs.q);
 }
 
 void	is_playable(t_node *obj, int *visited)
@@ -50,6 +51,8 @@ void	is_playable(t_node *obj, int *visited)
 	}
 }
 
+void printGraph(t_graph *graph);
+
 void	bfs_validation(t_game_board *g)
 {
 	t_graph	*graph;
@@ -59,19 +62,21 @@ void	bfs_validation(t_game_board *g)
 	graph = graph_create(g->x * g->y, map, g->x);
 	edge_initial(graph, g);
 	bfs(graph, g->position);
+	//printGraph(graph);
 	is_playable(g->judge_obj, graph->visited);
+	free_graph(graph, g);
 }
 // Print the graph
-// void printGraph(t_graph *graph) {
-//   int v;
-//   for (v = 0; v < graph->num_vertex; v++) {
-//     t_node *temp = graph->adj_lsts[v];
-//     printf("\n Vertex %d\n: ", v);
-//     while (temp)
-// 	{
-//       printf("%d -> ", *(int *)temp->content);
-//       temp = temp->next;
-//     }
-//     printf("\n");
-//   }
-// }
+void printGraph(t_graph *graph) {
+  int v;
+  for (v = 0; v < graph->num_vertex; v++) {
+    t_node *temp = graph->adj_lsts[v];
+    printf("\n Vertex %d\n: ", v);
+    while (temp)
+	{
+      printf("%d -> ", *(int *)temp->content);
+      temp = temp->next;
+    }
+    printf("\n");
+  }
+}

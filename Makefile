@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/16 01:21:13 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/16 02:00:56 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										/bfs_obj_initial.c		\
 										/graph_create.c			\
 										/edge_initial.c			\
+										/free_graph.c			\
 										)
 SL_OBJS			=	$(SL_SRCS:.c=.o)
 
