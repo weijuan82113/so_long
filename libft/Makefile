@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2022/12/15 22:32:10 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/18 14:30:54 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,9 @@ SRCS			=ft_lstmap.c					\
 				ft_create_queue.c				\
 				ft_dequeue.c					\
 				ft_enqueue.c					\
+				ft_lst_ascsort.c				\
+				ft_lst_descsort.c				\
+
 #	Objects
 OBJS		= $(SRCS:%.c=%.o)
 

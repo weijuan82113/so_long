@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/17 13:52:40 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/18 10:35:30 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,45 +38,50 @@ void	bfs(t_graph *graph, int start)
 		}
 		ft_dequeue(bfs.q);
 	}
-	free (bfs.q);
+	free(bfs.q);
 }
 
-void	is_playable(t_node *obj, int *visited)
+void	is_playable(t_game_board *g, int *visited)
 {
+	t_node	*obj;
+
+	obj = g->judge_obj;
+	if (visited[*(int *)obj->content] != 1)
+		ft_error(ACHIEVE_ERR);
 	while (obj != NULL)
 	{
 		if (visited[*(int *)obj->content] != 1)
-			ft_error(ISPLAYED_ERR);
+			ft_error(COLLECTABLE_ERR);
 		obj = obj->next;
 	}
 }
 
-void printGraph(t_graph *graph);
+// void	printGraph(t_graph *graph);
 
 void	bfs_validation(t_game_board *g)
 {
-	t_graph	*graph;
-	char	**map;
-
-	map = g->map;
-	graph = graph_create(g->x * g->y, map, g->x);
-	edge_initial(graph, g);
-	bfs(graph, g->position);
+	g->graph = graph_create(g->x * g->y, g->map, g->x);
+	edge_initial(g->graph, g);
+	bfs(g->graph, g->position);
 	//printGraph(graph);
-	is_playable(g->judge_obj, graph->visited);
-	free_graph(graph, g);
+	is_playable(g, g->graph->visited);
+	//free_graph(graph, g);
 }
 // Print the graph
-void printGraph(t_graph *graph) {
-  int v;
-  for (v = 0; v < graph->num_vertex; v++) {
-    t_node *temp = graph->adj_lsts[v];
-    printf("\n Vertex %d\n: ", v);
-    while (temp)
-	{
-      printf("%d -> ", *(int *)temp->content);
-      temp = temp->next;
-    }
-    printf("\n");
-  }
-}
+// void	printGraph(t_graph *graph)
+// {
+// 	int		v;
+// 	t_node	*temp;
+
+// 	for (v = 0; v < graph->num_vertex; v++)
+// 	{
+// 		temp = graph->adj_lsts[v];
+// 		printf("\n Vertex %d\n: ", v);
+// 		while (temp)
+// 		{
+// 			printf("%d -> ", *(int *)temp->content);
+// 			temp = temp->next;
+// 		}
+// 		printf("\n");
+// 	}
+// }

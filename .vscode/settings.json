@@ -20,6 +20,7 @@
 		"so_long_const.h": "c",
 		"error_msg.h": "c",
 		"libft.h": "c",
-		"img.h": "c"
+		"img.h": "c",
+		"stdlib.h": "c"
 	}
 }

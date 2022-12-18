@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/17 15:49:41 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/18 10:30:16 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,23 @@ typedef struct s_graph
 	int		*visited;
 }			t_graph;
 
-
 typedef struct s_game_board
 {
-	char	**map;
-	t_node	*map_head;
-	int		collect_count;
-	int		exit_count;
-	int		player_count;
-	int		empty_count;
-	int		wall_count;
-	t_node	*judge_obj;
-	int		x;
-	int		y;
-	int		size;
-	int		position;
-	int		step;
+	char		**map;
+	t_node		*map_head;
+	int			collect_count;
+	int			exit_count;
+	int			player_count;
+	int			empty_count;
+	int			wall_count;
+	t_node		*judge_obj;
+	int			x;
+	int			y;
+	int			size;
+	int			position;
+	int			goal_position;
+	int			step;
+	t_graph		*graph;
 }			t_game_board;
 
 typedef struct s_img
@@ -96,6 +97,6 @@ int				destroy_hook(t_mlx *t_mlx);
 void			bfs_obj_initial(t_game_board *g, char obj, int i);
 t_graph			*graph_create(int vertex_count, char **map, int x);
 void			edge_initial(t_graph *graph, t_game_board *g);
-void			free_graph(t_graph *graph, t_game_board *g);
+void			free_graph(t_graph *graph);
 
 #endif

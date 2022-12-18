@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:36:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/16 01:10:53 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/18 14:49:09 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,8 @@ int		print_ptr(unsigned long long uint_ptr);
 t_queue	*ft_create_queue(void);
 void	ft_enqueue(t_queue *q, void *content);
 void	ft_dequeue(t_queue *q);
+void	merge_sort(t_node **headRef);
+void	ft_lst_ascsort(t_node **headRef);
+void	ft_lst_descsort(t_node **headRef);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:34:26 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/15 23:56:04 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/18 10:37:20 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define NO_WALL_ERR		"Error\nThere is no wall in map\n"
 # define ONE_LINE_ERR		"Error\nThe map is consisted by only one line\n"
 # define MAP_SIZE_ERR		"Error\nThe map is too big\n"
-# define ISPLAYED_ERR		"Error\nThe player can't achieve the goal\n"
+# define ACHIEVE_ERR		"Error\nThe player can't achieve the goal\n"
+# define COLLECTABLE_ERR	"Error\nThe player can't collect all the item\n"
 
 #endif

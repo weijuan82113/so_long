@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:08:26 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/17 16:48:54 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/18 10:42:24 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static void	free_g_board(t_game_board *g)
 		free(*map);
 		free(g->map);
 	}
+	if (g->graph != NULL)
+		free_graph(g->graph);
 	free(g);
 	g = NULL;
 }

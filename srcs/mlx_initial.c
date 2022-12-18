@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 21:30:12 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/11 23:27:54 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/19 01:24:42 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_img	*img_initial(void *mlx, t_game_board *g)
 	char	*object;
 	t_img	*img_head;
 
-	object = "PCE01G";
+	object = "PCE01GK";
 	img_head = NULL;
 	while (*object)
 	{

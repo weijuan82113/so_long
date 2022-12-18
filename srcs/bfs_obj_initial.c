@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 19:44:34 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/16 01:20:11 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/18 10:31:23 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	obj_push(t_game_board *g, int i)
 {
 	int	*content;
 
-	content = malloc(sizeof(int) * 1);
+	content = malloc(sizeof(int));
 	*content = i;
 	if (!content)
 		exit(EXIT_FAILURE);
@@ -30,6 +30,8 @@ void	bfs_obj_initial(t_game_board *g, char obj, int i)
 {
 	if (obj == 'P')
 		g->position = i;
-	if (obj == 'C' || obj == 'E')
+	else if (obj == 'G')
+		g->goal_position = i;
+	else if (obj == 'C')
 		obj_push(g, i);
 }

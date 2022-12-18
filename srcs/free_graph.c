@@ -6,12 +6,11 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 01:46:53 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/17 12:43:19 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/18 10:12:01 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 //Print the graph
 // void printGraph(t_graph *graph, int v)
@@ -27,12 +26,12 @@
 //     printf("\n");
 // }
 
-void	free_graph(t_graph *graph, t_game_board *g)
+void	free_graph(t_graph *graph)
 {
 	int	i;
 
 	i = 0;
-	while(i < g->x * g->y)
+	while(i < graph->num_vertex)
 	{
 		//debug_point
 		//printGraph(graph, i);fflush(stdout);
