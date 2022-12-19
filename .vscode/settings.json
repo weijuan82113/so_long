@@ -21,6 +21,7 @@
 		"error_msg.h": "c",
 		"libft.h": "c",
 		"img.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"__locale": "c"
 	}
 }

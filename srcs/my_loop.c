@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:50:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/18 16:18:34 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/19 21:25:00 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static void move_to(int direct, t_game_board *g, t_node *enemy)
 	int		move_p;
 
 	p = *(int *)enemy->content;
+	if (p == 0)
+		return;
 	//printGraph(g->graph);fflush(stdout);
 	adj_lst = g->graph->adj_lsts[p];
 	if (direct == ASC)
@@ -105,6 +107,7 @@ static void enemy_move(t_mlx *t_mlx)
 			move_to(DESC, t_mlx->g, enemy);
 		enemy = enemy->next;
 	}
+
 }
 
 static void	door_open(t_mlx *t_mlx)
