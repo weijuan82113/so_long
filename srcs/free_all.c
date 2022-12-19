@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:08:26 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/19 21:39:23 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 01:47:35 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,18 @@ static void	free_g_board(t_game_board *g)
 	g = NULL;
 }
 
-static void	free_img(t_mlx *t_mlx)
+static void	free_img(t_mlx *t_mlx, t_img *img_head)
 {
-	t_img	*temp_head;
-	t_img	*img_head;
+	t_img	*temp;
 
-	img_head = t_mlx->img_head;
 	while (img_head != NULL)
 	{
-		temp_head = img_head->next;
+		temp = img_head->next;
 		if (img_head->img != NULL)
 			mlx_destroy_image(t_mlx->mlx, img_head->img);
 		free(img_head);
 		img_head = NULL;
-		img_head = temp_head;
+		img_head = temp;
 	}
 }
 
@@ -59,7 +57,9 @@ void	free_all(t_mlx *t_mlx)
 	mlx_destroy_window(t_mlx->mlx, t_mlx->win);
 	mlx_clear_window(t_mlx->mlx, t_mlx->win);
 	if (t_mlx->img_head != NULL)
-		free_img(t_mlx);
+		free_img(t_mlx, t_mlx->img_head);
+	if (t_mlx->img_sprite != NULL)
+		free_img(t_mlx, t_mlx->img_sprite);
 	if (t_mlx->mlx != NULL)
 	{
 		free(t_mlx->mlx);
