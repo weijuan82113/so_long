@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/18 10:30:16 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/19 23:43:41 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_game_board
 	int			position;
 	int			goal_position;
 	int			step;
+	int			attak;
 	t_graph		*graph;
 }			t_game_board;
 
@@ -75,6 +76,7 @@ typedef struct s_mlx
 	void			*mlx;
 	void			*win;
 	t_img			*img_head;
+	t_img			*img_sprite;
 	t_game_board	*g;
 }					t_mlx;
 
@@ -86,6 +88,7 @@ void			map_validation(t_game_board *g_board);
 void			bfs_validation(t_game_board *g_board);
 t_mlx			*mlx_initial(int argc, char **argv);
 t_img			*img_lstnew(void *mlx, char object, int size);
+t_img			*sprite_lstnew(void *mlx, char object, int size);
 void			img_lstadd_back(t_img **head, t_img *new);
 void			win_initial(void *mlx, void *win,
 					t_game_board *g, t_img *img_head);

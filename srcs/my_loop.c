@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:50:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/19 21:25:00 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 01:33:23 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static void enemy_move(t_mlx *t_mlx)
 			move_to(DESC, t_mlx->g, enemy);
 		enemy = enemy->next;
 	}
-
+	usleep(400000);
 }
 
 static void	door_open(t_mlx *t_mlx)
@@ -132,19 +132,51 @@ static void	door_open(t_mlx *t_mlx)
 	}
 }
 
+static void attack_animation(t_mlx *t_mlx)
+{
+	t_img	*sprite;
+	int		p;
+	void	*s_img;
+	t_game_board *g;
+
+	sprite = t_mlx->img_sprite;
+	p = t_mlx->g->position;
+	g = t_mlx->g;
+	while(sprite != NULL)
+	{
+		//printf("sprite is %p\n", sprite);
+		//printf("p is %d\n", p);
+		//printf("g is %p\n", g);
+		s_img = sprite->img;
+		//printf("s_img is %p\n", s_img);
+		//t_mlx->img_head->img = s_img;
+		mlx_put_image_to_window(t_mlx->mlx, t_mlx->win, s_img, (p % g->x) * g->size,
+			(p / g->x) * g->size);
+		usleep(100000);
+		sprite = sprite->next;
+	}
+	usleep(250000);
+	t_mlx->g->attak = 0;
+}
+
 int	my_loop(t_mlx *t_mlx)
 {
+	if (t_mlx->g->attak == 1)
+		attack_animation(t_mlx);
+	else
+		enemy_move(t_mlx);
+	//win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
 	win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
-	sleep(1);
-	enemy_move(t_mlx);
-	//win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
-	//win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 10, 25, RED, "STEP");
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 50, 25, RED,
 		ft_itoa(t_mlx->g->step));
+	mlx_string_put(t_mlx->mlx, t_mlx->win, 80, 25, RED, "ENEMY");
+	mlx_string_put(t_mlx->mlx, t_mlx->win, 120, 25, RED,
+		ft_itoa(t_mlx->g->collect_count));
 	if (t_mlx->g->collect_count == 0)
 		door_open(t_mlx);
 	if (t_mlx->g->exit_count == 0)
 		game_over(t_mlx, SUCCEED);
+
 	return (0);
 }

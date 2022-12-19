@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 00:35:35 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/19 00:23:54 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/19 23:33:48 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,8 @@
 # define RED		0x00FF0000
 # define ASC		0
 # define DESC		1
+# define P1			'1'
+# define P2			'2'
+# define P3			'3'
+
 #endif

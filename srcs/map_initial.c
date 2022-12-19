@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:24:37 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/18 10:32:08 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/19 23:44:12 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static t_game_board	*game_board_inital(void)
 	g_board->map_head = NULL;
 	g_board->judge_obj = NULL;
 	g_board->graph = NULL;
+	g_board->attak = 0;
 	return (g_board);
 }
 
