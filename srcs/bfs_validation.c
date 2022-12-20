@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:26:57 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:39:20 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	is_playable(t_game_board *g, int *visited)
 	t_node	*obj;
 
 	obj = g->judge_obj;
-	printf("goal is %d\n", g->goal_position);
-	fflush(stdout);
 	if (visited[g->goal_position] != 1)
 		ft_error(ACHIEVE_ERR);
 	while (obj != NULL)
