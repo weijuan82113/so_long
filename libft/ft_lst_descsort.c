@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 11:02:01 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/18 14:51:34 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 20:51:03 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_node	*sorted_merge(t_node *a, t_node *b)
 		return (b);
 	else if (b == NULL)
 		return (a);
-	if(a -> content >= b -> content)
+	if(*(int *)a -> content >= *(int *)b -> content)
 	{
 		result = a;
 		result -> next = sorted_merge(a -> next, b);

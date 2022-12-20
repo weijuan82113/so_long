@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 19:44:34 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/18 10:31:23 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:03:30 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	bfs_obj_initial(t_game_board *g, char obj, int i)
 {
 	if (obj == 'P')
 		g->position = i;
-	else if (obj == 'G')
+	else if (obj == 'E')
 		g->goal_position = i;
 	else if (obj == 'C')
 		obj_push(g, i);

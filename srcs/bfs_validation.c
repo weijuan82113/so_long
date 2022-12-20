@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/18 10:35:30 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:05:54 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	is_playable(t_game_board *g, int *visited)
 	t_node	*obj;
 
 	obj = g->judge_obj;
-	if (visited[*(int *)obj->content] != 1)
+	printf("goal is %d\n", g->goal_position);fflush(stdout);
+	if (visited[g->goal_position] != 1)
 		ft_error(ACHIEVE_ERR);
 	while (obj != NULL)
 	{
@@ -56,18 +57,15 @@ void	is_playable(t_game_board *g, int *visited)
 	}
 }
 
-// void	printGraph(t_graph *graph);
-
 void	bfs_validation(t_game_board *g)
 {
 	g->graph = graph_create(g->x * g->y, g->map, g->x);
 	edge_initial(g->graph, g);
 	bfs(g->graph, g->position);
-	//printGraph(graph);
 	is_playable(g, g->graph->visited);
 	//free_graph(graph, g);
 }
-// Print the graph
+//Print the graph
 // void	printGraph(t_graph *graph)
 // {
 // 	int		v;
@@ -84,4 +82,20 @@ void	bfs_validation(t_game_board *g)
 // 		}
 // 		printf("\n");
 // 	}
+// }
+
+// void printMap(int *visited,int size, int x)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		//printf("i : %d\n", i);
+// 		printf("%d", visited[i]);fflush(stdout);
+// 		if(i % x == x-1)
+// 			printf("\n");fflush(stdout);
+// 		i ++;
+// 	}
+// 	printf("-------finished-------\n");fflush(stdout);
 // }

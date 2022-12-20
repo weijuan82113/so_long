@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/19 23:43:41 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:15:08 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ void			bfs_obj_initial(t_game_board *g, char obj, int i);
 t_graph			*graph_create(int vertex_count, char **map, int x);
 void			edge_initial(t_graph *graph, t_game_board *g);
 void			free_graph(t_graph *graph);
+void			enemy_move(t_mlx *t_mlx);
 
 #endif
