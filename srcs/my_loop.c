@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:50:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:16:18 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:25:07 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,21 @@ static void	door_open(t_mlx *t_mlx)
 	}
 }
 
-static void attack_animation(t_mlx *t_mlx)
+static void	attack_animation(t_mlx *t_mlx)
 {
-	t_img	*sprite;
-	int		p;
-	void	*s_img;
-	t_game_board *g;
+	t_img			*sprite;
+	int				p;
+	void			*s_img;
+	t_game_board	*g;
 
 	sprite = t_mlx->img_sprite;
 	p = t_mlx->g->position;
 	g = t_mlx->g;
-	while(sprite != NULL)
+	while (sprite != NULL)
 	{
 		s_img = sprite->img;
-		mlx_put_image_to_window(t_mlx->mlx, t_mlx->win, s_img, (p % g->x) * g->size,
-			(p / g->x) * g->size);
+		mlx_put_image_to_window(t_mlx->mlx, t_mlx->win, s_img, (p % g->x)
+			* g->size, (p / g->x) * g->size);
 		usleep(100000);
 		sprite = sprite->next;
 	}

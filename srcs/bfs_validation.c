@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:05:54 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:26:57 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	is_playable(t_game_board *g, int *visited)
 	t_node	*obj;
 
 	obj = g->judge_obj;
-	printf("goal is %d\n", g->goal_position);fflush(stdout);
+	printf("goal is %d\n", g->goal_position);
+	fflush(stdout);
 	if (visited[g->goal_position] != 1)
 		ft_error(ACHIEVE_ERR);
 	while (obj != NULL)
@@ -63,7 +64,6 @@ void	bfs_validation(t_game_board *g)
 	edge_initial(g->graph, g);
 	bfs(g->graph, g->position);
 	is_playable(g, g->graph->visited);
-	//free_graph(graph, g);
 }
 //Print the graph
 // void	printGraph(t_graph *graph)

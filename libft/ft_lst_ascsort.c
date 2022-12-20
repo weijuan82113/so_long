@@ -6,13 +6,14 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 11:02:01 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 20:53:00 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:30:04 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	front_back_split(t_node *source, t_node **front_ref, t_node **back_ref)
+static void	front_back_split(t_node *source, t_node **front_ref,
+		t_node **back_ref)
 {
 	t_node	*fast;
 	t_node	*slow;
@@ -41,27 +42,28 @@ static t_node	*sorted_merge(t_node *a, t_node *b)
 		return (b);
 	else if (b == NULL)
 		return (a);
-	if(*(int *)a -> content <= *(int *)b -> content)
+	if (*(int *)a->content <= *(int *)b->content)
 	{
 		result = a;
-		result -> next = sorted_merge(a -> next, b);
+		result->next = sorted_merge(a->next, b);
 	}
 	else
 	{
 		result = b;
-		result -> next = sorted_merge(a, b -> next);
+		result->next = sorted_merge(a, b->next);
 	}
 	return (result);
 }
 
 void	ft_lst_ascsort(t_node **headRef)
 {
-	t_node	*head = *headRef;
+	t_node	*head;
 	t_node	*a;
 	t_node	*b;
 
+	head = *headRef;
 	if ((head == NULL) || (head->next) == NULL)
-		return;
+		return ;
 	front_back_split(head, &a, &b);
 	ft_lst_ascsort(&a);
 	ft_lst_ascsort(&b);

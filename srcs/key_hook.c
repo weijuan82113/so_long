@@ -6,45 +6,26 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 23:54:33 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/19 23:49:40 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:25:47 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// static void print_obj(t_node *obj)
-// {
-// 	while(obj != NULL)
-// 	{
-// 		printf("%d->", *(int *)obj->content);fflush(stdout);
-// 		obj = obj->next;
-// 	}
-// 	printf("\n");fflush(stdout);
-// }
-
-static void enemy_kill(t_game_board *g, int enemy_p)
+static void	enemy_kill(t_game_board *g, int enemy_p)
 {
 	t_node	*obj;
 	char	**map;
 
 	obj = g->judge_obj;
 	map = g->map;
-	//g->collect_count --;
 	map[enemy_p / g->x][enemy_p % g->x] = 'K';
-	//print_obj(g->judge_obj);
 	while (*(int *)obj->content != enemy_p)
 		obj = obj->next;
 	*(int *)obj->content = 0;
-	//
-	// 	obj = obj->next;
-	// if (obj->next != NULL)
-	// 	temp = obj->next;
-	// ft_lstdelone(obj, free);
-	// while (g->judge_obj != NULL)
-	// 	g->judge_obj = g->judge_obj->next;
 }
 
-static void player_attack(t_mlx *t_mlx)
+static void	player_attack(t_mlx *t_mlx)
 {
 	int		p;
 	int		x;
@@ -53,16 +34,15 @@ static void player_attack(t_mlx *t_mlx)
 	p = t_mlx->g->position;
 	x = t_mlx->g->x;
 	map = t_mlx->g->map;
-	//attack_animation(t_mlx);
 	t_mlx->g->attak = 1;
-	if(map[(p - x)/x][(p - x)%x] == 'C')
-		enemy_kill(t_mlx->g, p-x);
-	if(map[(p + x)/x][(p + x)%x] == 'C')
-		enemy_kill(t_mlx->g, p+x);
-	if(map[(p - 1)/x][(p - 1)%x] == 'C')
-		enemy_kill(t_mlx->g, p-1);
-	if(map[(p + 1)/x][(p + 1)%x] == 'C')
-		enemy_kill(t_mlx->g, p+1);
+	if (map[(p - x) / x][(p - x) % x] == 'C')
+		enemy_kill(t_mlx->g, p - x);
+	if (map[(p + x) / x][(p + x) % x] == 'C')
+		enemy_kill(t_mlx->g, p + x);
+	if (map[(p - 1) / x][(p - 1) % x] == 'C')
+		enemy_kill(t_mlx->g, p - 1);
+	if (map[(p + 1) / x][(p + 1) % x] == 'C')
+		enemy_kill(t_mlx->g, p + 1);
 }
 
 int	move_judge(t_game_board *g, int direct)
@@ -85,10 +65,6 @@ int	move_judge(t_game_board *g, int direct)
 		g->collect_count--;
 	else if (g->map[move_p / g->x][move_p % g->x] != '0')
 		return (0);
-	// else if (g->map[move_p / g->x][move_p % g->x] == 'E')
-	// 	return (0);
-	// else if (g->map[move_p / g->x][move_p % g->x] == 'C')
-	// 	g->collect_count--;
 	return (1);
 }
 
