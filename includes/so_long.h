@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:15:08 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/20 22:42:48 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_bfs
 
 typedef struct s_graph
 {
-	int 	num_vertex;
+	int		num_vertex;
 	t_node	**adj_lsts;
 	int		*visited;
 }			t_graph;
