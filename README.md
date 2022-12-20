@@ -5,9 +5,9 @@ Use minilibx to design a 2D game which have to confirm the input map and collect
 >https://harm-smits.github.io/42docs/libs/minilibx
 
 ## Requirement
-MacOSX (AppKit) Xcode 14.1
-OpenGL `$ brew install glfw`
-Xquartz(2.8.3) `$ brew xquartz`
+- MacOSX (AppKit) Xcode 14.1
+- OpenGL `$ brew install glfw`
+- Xquartz(2.8.3) `$ brew xquartz`
 
 ## Usage
 `git clone ... 
