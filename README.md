@@ -17,7 +17,7 @@ make
 ```
 ## Feature
 - Graphic management
-- Use BSF algorithm to confirm the validation check of the input map 
+- Use BSF algorithm to confirm the validation check of the input map
 - Use graph to let the item move automatically
 
 ## Reference

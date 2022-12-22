@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:12:43 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/23 04:31:54 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 05:01:31 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ static void	move_to(int direct, t_game_board *g, t_node *enemy)
 	else
 		ft_lst_descsort(&adj_lst);
 	move_p = *(int *)adj_lst->content;
-	while (g->map[move_p / g->x][move_p % g->x] != '0' && adj_lst != NULL)
+	while (g->map[move_p / g->x][move_p % g->x] != '0' && adj_lst->next != NULL)
 	{
-		move_p = *(int *)adj_lst->content;
 		adj_lst = adj_lst->next;
+		move_p = *(int *)adj_lst->content;
 	}
 	if (adj_lst == NULL)
 		return ;
