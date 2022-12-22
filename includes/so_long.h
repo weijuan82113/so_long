@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:42:48 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 03:14:35 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void			wall_validation(t_game_board *g_board, char input_chr, int i);
 void			map_validation(t_game_board *g_board);
 void			bfs_validation(t_game_board *g_board);
 t_mlx			*mlx_initial(int argc, char **argv);
-t_img			*img_lstnew(void *mlx, char object, int size);
-t_img			*sprite_lstnew(void *mlx, char object, int size);
+t_img			*img_lstnew(void *mlx, char object, char* size);
+t_img			*sprite_lstnew(void *mlx, char object, char* size);
 void			img_lstadd_back(t_img **head, t_img *new);
 void			win_initial(void *mlx, void *win,
 					t_game_board *g, t_img *img_head);

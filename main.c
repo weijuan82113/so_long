@@ -6,11 +6,16 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:57:38 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 23:00:47 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 04:10:19 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q so_long");
+}
 
 int	main(int argc, char **argv)
 {
@@ -21,5 +26,6 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(t_mlx->mlx, my_loop, t_mlx);
 	mlx_hook(t_mlx->win, 17, 1L << 17, destroy_hook, t_mlx);
 	mlx_loop(t_mlx->mlx);
+	free_all(t_mlx);
 	return (0);
 }

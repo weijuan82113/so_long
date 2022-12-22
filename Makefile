@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/20 22:14:30 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/22 22:29:47 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME			=	so_long
 UNAME			=	$(shell uname)
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -I$(INCLUDES_DIR)\
-					-I$(LIBFT_INC) -I$(MLX_INC)
+CFLAGS			=	-Wall -Wextra -Werror \
+					-I$(INCLUDES_DIR) -I$(LIBFT_INC) -I$(MLX_INC)
 
 MAIN			=	./main.c
 MAIN_OBJ		=	$(MAIN:.c=.o)

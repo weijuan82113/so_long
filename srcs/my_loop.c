@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:50:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:25:07 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 04:17:17 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,22 @@ static void	attack_animation(t_mlx *t_mlx)
 
 int	my_loop(t_mlx *t_mlx)
 {
+	char *step;
+	char *enemy;
+
 	if (t_mlx->g->attak == 1)
 		attack_animation(t_mlx);
 	else
 		enemy_move(t_mlx);
 	win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 10, 25, RED, "STEP");
-	mlx_string_put(t_mlx->mlx, t_mlx->win, 50, 25, RED,
-		ft_itoa(t_mlx->g->step));
+	step = ft_itoa(t_mlx->g->step);
+	mlx_string_put(t_mlx->mlx, t_mlx->win, 50, 25, RED, step);
+	free(step);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 80, 25, RED, "ENEMY");
-	mlx_string_put(t_mlx->mlx, t_mlx->win, 120, 25, RED,
-		ft_itoa(t_mlx->g->collect_count));
+	enemy = ft_itoa(t_mlx->g->collect_count);
+	mlx_string_put(t_mlx->mlx, t_mlx->win, 120, 25, RED, enemy);
+	free(enemy);
 	if (t_mlx->g->collect_count == 0)
 		door_open(t_mlx);
 	if (t_mlx->g->exit_count == 0)

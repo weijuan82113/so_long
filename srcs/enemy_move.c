@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:12:43 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:18:24 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 04:31:54 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	move_to(int direct, t_game_board *g, t_node *enemy)
 	int		p;
 	int		move_p;
 
+	(void) direct;
 	p = *(int *)enemy->content;
 	if (p == 0)
 		return ;

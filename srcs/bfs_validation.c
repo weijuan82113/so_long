@@ -6,12 +6,14 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/20 22:39:20 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 00:52:00 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+
+//debug
 void	bfs(t_graph *graph, int start)
 {
 	t_bfs	bfs;
@@ -27,10 +29,10 @@ void	bfs(t_graph *graph, int start)
 		bfs.temp = graph->adj_lsts[bfs.current_vertex];
 		while (bfs.temp)
 		{
-			bfs.adj_vertex = malloc(sizeof(int));
-			*bfs.adj_vertex = *(int *)bfs.temp->content;
-			if (graph->visited[*bfs.adj_vertex] == 0)
+			if (graph->visited[*(int *)bfs.temp->content] == 0)
 			{
+				bfs.adj_vertex = malloc(sizeof(int));
+				*bfs.adj_vertex = *(int *)bfs.temp->content;
 				graph->visited[*bfs.adj_vertex] = 1;
 				ft_enqueue(bfs.q, bfs.adj_vertex);
 			}
