@@ -6,14 +6,12 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/23 00:52:00 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 17:33:19 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-//debug
 void	bfs(t_graph *graph, int start)
 {
 	t_bfs	bfs;
@@ -43,13 +41,13 @@ void	bfs(t_graph *graph, int start)
 	free(bfs.q);
 }
 
-void	is_playable(t_game_board *g, int *visited)
+void	is_collectable(t_game_board *g, int *visited)
 {
 	t_node	*obj;
 
+	visited[g->goal_position] = 1;
+	bfs(g->graph, g->position);
 	obj = g->judge_obj;
-	if (visited[g->goal_position] != 1)
-		ft_error(ACHIEVE_ERR);
 	while (obj != NULL)
 	{
 		if (visited[*(int *)obj->content] != 1)
@@ -58,12 +56,37 @@ void	is_playable(t_game_board *g, int *visited)
 	}
 }
 
+void	reset_visited(t_game_board *g)
+{
+	int			i;
+	t_graph		*graph;
+	char		**map;
+
+	i = 0;
+	graph = g->graph;
+	map = g->map;
+	while(i < graph->num_vertex)
+	{
+		if(map[i / g->x][i % g->x] != '1')
+			graph->visited[i] = 0;
+		i ++;
+	}
+}
+
+void	is_achievable(t_game_board *g, int *visited)
+{
+	reset_visited(g);
+	bfs(g->graph, g->position);
+	if (visited[g->goal_position] != 1)
+		ft_error(ACHIEVE_ERR);
+}
+
 void	bfs_validation(t_game_board *g)
 {
 	g->graph = graph_create(g->x * g->y, g->map, g->x);
 	edge_initial(g->graph, g);
-	bfs(g->graph, g->position);
-	is_playable(g, g->graph->visited);
+	is_collectable(g, g->graph->visited);
+	is_achievable(g, g->graph->visited);
 }
 //Print the graph
 // void	printGraph(t_graph *graph)

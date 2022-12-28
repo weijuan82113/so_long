@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:08:26 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/23 03:23:34 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/28 15:48:46 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,13 @@ static void	free_img(t_mlx *t_mlx, t_img *img_head)
 void	free_all(t_mlx *t_mlx)
 {
 	printf("test1\n");fflush(stdout);
-
 	if (t_mlx->img_head != NULL)
 		free_img(t_mlx, t_mlx->img_head);
 	printf("test2\n");fflush(stdout);
 	if (t_mlx->img_sprite != NULL)
 		free_img(t_mlx, t_mlx->img_sprite);
-	mlx_destroy_window(t_mlx->mlx, t_mlx->win);
 	mlx_clear_window(t_mlx->mlx, t_mlx->win);
+	mlx_destroy_window(t_mlx->mlx, t_mlx->win);
 	mlx_destroy_display(t_mlx->mlx);
 	printf("test3\n");fflush(stdout);
 	if (t_mlx->mlx != NULL)

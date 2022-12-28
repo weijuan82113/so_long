@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:04:56 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/22 23:04:56 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/23 08:54:09 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	map_validation(t_game_board *g_board)
 		ft_error(EXIT_ERR);
 	else if (g_board->player_count != 1)
 		ft_error(PLAYER_ERR);
-	else if (g_board->empty_count == 0)
-		ft_error(EMPTY_ERR);
+	// else if (g_board->empty_count == 0)
+	// 	ft_error(EMPTY_ERR);
 	else if (g_board->wall_count == 0)
 		ft_error(NO_WALL_ERR);
 	else if (g_board->y == 1 || g_board->x == 1)

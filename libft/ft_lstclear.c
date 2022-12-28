@@ -6,11 +6,12 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:39:10 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/22 22:50:42 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/28 15:46:13 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 void	ft_lstclear(t_node **lst, void (*del)(void*))
 {
@@ -22,6 +23,7 @@ void	ft_lstclear(t_node **lst, void (*del)(void*))
 	p_lst = *lst;
 	while (p_lst)
 	{
+		printf("clear node\n");
 		temp = p_lst -> next;
 		ft_lstdelone(p_lst, del);
 		p_lst = temp;

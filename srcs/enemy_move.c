@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:12:43 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/23 05:01:31 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/28 16:08:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,28 @@ static int	position_judge(int enemy, int player)
 		return (ASC);
 	else
 		return (DESC);
+}
+
+void print_lst(t_graph *graph)
+{
+	int i;
+	int	count;
+	t_node	*node;
+
+	count = graph->num_vertex;
+	i = 0;
+	while (i < count)
+	{
+		node = graph->adj_lsts[i];
+		printf("%d :",i);
+		while(node)
+		{
+			printf("%d->", *(int *)node->content);
+			node = node->next;
+		}
+		printf("\n");
+		i ++;
+	}
 }
 
 static void	move_to(int direct, t_game_board *g, t_node *enemy)
@@ -35,13 +57,16 @@ static void	move_to(int direct, t_game_board *g, t_node *enemy)
 		ft_lst_ascsort(&adj_lst);
 	else
 		ft_lst_descsort(&adj_lst);
+	print_lst(g->graph);
 	move_p = *(int *)adj_lst->content;
+	printf("p :%d", p);
+	printf("move to %d\n",move_p);
 	while (g->map[move_p / g->x][move_p % g->x] != '0' && adj_lst->next != NULL)
 	{
 		adj_lst = adj_lst->next;
 		move_p = *(int *)adj_lst->content;
 	}
-	if (adj_lst == NULL)
+	if (adj_lst->next == NULL && g->map[move_p / g->x][move_p % g->x] != '0')
 		return ;
 	g->map[move_p / g->x][move_p % g->x] = 'C';
 	g->map[p / g->x][p % g->x] = '0';
