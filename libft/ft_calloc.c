@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:11:43 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/11 23:28:15 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/28 16:19:33 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	if (count == 0 || size == 0)
 		return (ft_calloc(1, 1));
-	if (SIZE_MAX / count < size)
+	if (SSIZE_MAX / count < size)
 		return (NULL);
 	ptr = malloc(size * count);
 	if (ptr == NULL)

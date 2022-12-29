@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:12:43 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/28 16:08:50 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/29 23:17:03 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,18 @@ static void	move_to(int direct, t_game_board *g, t_node *enemy)
 	if (p == 0)
 		return ;
 	adj_lst = g->graph->adj_lsts[p];
-	if (direct == ASC)
-		ft_lst_ascsort(&adj_lst);
-	else
-		ft_lst_descsort(&adj_lst);
+	printf("adj_lst ptr %p\n", &adj_lst);
+	printf("g->graph->adj_lsts[p] ptr %p\n", &g->graph->adj_lsts[p]);
+	printf("-----printlst1-----\n");
 	print_lst(g->graph);
+	printf("-----finished1-----\n");
+	if (direct == ASC)
+		ft_lst_ascsort(&g->graph->adj_lsts[p]);
+	else
+		ft_lst_descsort(&g->graph->adj_lsts[p]);
+	printf("-----printlst2-----\n");
+	print_lst(g->graph);
+	printf("-----finished2-----\n");
 	move_p = *(int *)adj_lst->content;
 	printf("p :%d", p);
 	printf("move to %d\n",move_p);

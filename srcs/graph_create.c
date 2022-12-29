@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 00:47:47 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/25 17:08:46 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/28 21:11:06 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_graph	*graph_create(int vertex_count, char **map, int x)
 	if (!graph)
 		exit(EXIT_FAILURE);
 	graph->num_vertex = vertex_count;
-	graph->adj_lsts = malloc(sizeof(t_node) * vertex_count);
+	graph->adj_lsts = malloc(sizeof(t_node*) * vertex_count);
 	if (!graph->adj_lsts)
 		exit(EXIT_FAILURE);
 	graph->visited = malloc(sizeof(int) * vertex_count);

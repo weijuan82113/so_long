@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 00:48:56 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/25 17:25:20 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/29 16:58:40 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ static void	edge_add(t_graph *graph, int src, int dest)
 	new_node = ft_lstnew(content);
 	if (!new_node)
 		exit(EXIT_FAILURE);
-	new_node->next = graph->adj_lsts[src];
-	graph->adj_lsts[src] = new_node;
+	if (graph->adj_lsts[src] == NULL)
+		graph->adj_lsts[src] = new_node;
+	else
+		ft_lstadd_back(&graph->adj_lsts[src], new_node);
 }
 
 static void	edge_add_direction(t_graph *graph, int src, t_game_board *g)
