@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 22:27:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/11 23:28:38 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 19:43:14 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	save(char **line, char *find_return)
 
 	tmp = *line;
 	if (*(find_return + 1) != '\0')
-		*line = ft_strjoin("\0", find_return + 1);
+		*line = get_next_line_utils("\0", find_return + 1);
 	else
 		*line = "\0";
 	free (tmp);
@@ -60,7 +60,7 @@ static char	*return_line(char **line)
 
 	if (**line != '\0')
 	{
-		ret_chr = ft_strjoin(*line, "\0");
+		ret_chr = get_next_line_utils(*line, "\0");
 		*line = "\0";
 		return (ret_chr);
 	}
@@ -89,7 +89,7 @@ char	*get_next_line(int fd)
 		return (return_line(&line));
 	}
 	buf[read_byte] = '\0';
-	line = ft_strjoin(line, buf);
+	line = get_next_line_utils(line, buf);
 	free (buf);
 	return (get_next_line(fd));
 }

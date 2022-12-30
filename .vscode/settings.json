@@ -23,6 +23,7 @@
 		"img.h": "c",
 		"stdlib.h": "c",
 		"__locale": "c",
-		"functional": "c"
+		"functional": "c",
+		"stdio.h": "c"
 	}
 }

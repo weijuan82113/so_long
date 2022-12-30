@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2022/12/19 22:46:34 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/30 18:15:26 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS			=ft_lstmap.c					\
 				ft_strlen.c						\
 				get_next_line.c					\
 				get_next_line_bonus.c			\
+				get_next_line_utils.c			\
 				ft_printf.c						\
 				print_bx.c						\
 				print_char.c					\

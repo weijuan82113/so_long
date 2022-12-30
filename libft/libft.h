@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:36:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/23 00:22:33 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 18:15:07 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*get_next_line(int fd);
 char	*get_next_line_bonus(int fd);
+char	*get_next_line_utils(char const *s1, char const *s2);
 int		ft_printf(const char *format, ...);
 int		print_char(int chr);
 int		print_str(char *str);
