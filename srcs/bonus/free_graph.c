@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_graph.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 19:57:38 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:25:59 by wchen            ###   ########.fr       */
+/*   Created: 2022/12/16 01:46:53 by wchen             #+#    #+#             */
+/*   Updated: 2022/12/30 00:50:37 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#ifdef LEAKS
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q so_long");
-}
-
-#endif
-
-int	main(int argc, char **argv)
+void	free_graph(t_graph *graph)
 {
-	t_mlx	*t_mlx;
+	int	i;
 
-	t_mlx = mlx_initial(argc, argv);
-	mlx_key_hook(t_mlx->win, key_hook, t_mlx);
-	mlx_loop_hook(t_mlx->mlx, my_loop, t_mlx);
-	mlx_hook(t_mlx->win, 17, 1L << 17, destroy_hook, t_mlx);
-	mlx_loop(t_mlx->mlx);
-	return (0);
+	i = 0;
+	while (i < graph->num_vertex)
+	{
+		ft_lstclear(&(graph->adj_lsts[i]), free);
+		i++;
+	}
+	free(graph->adj_lsts);
+	free(graph->visited);
+	free(graph);
 }

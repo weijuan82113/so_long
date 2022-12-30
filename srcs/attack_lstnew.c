@@ -6,13 +6,13 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:10:15 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 14:11:33 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 15:32:30 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_img	*attack_lstnew(void *mlx, char object, char* size)
+t_img	*attack_lstnew(void *mlx, char object, char *size)
 {
 	t_img	*img_head;
 

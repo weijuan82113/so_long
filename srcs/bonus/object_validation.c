@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   object_validation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 19:57:38 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:25:59 by wchen            ###   ########.fr       */
+/*   Created: 2022/12/06 22:07:31 by wchen             #+#    #+#             */
+/*   Updated: 2022/12/11 23:27:57 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#ifdef LEAKS
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q so_long");
-}
-
-#endif
-
-int	main(int argc, char **argv)
+int	object_validation(char input_chr, t_game_board *g_board)
 {
-	t_mlx	*t_mlx;
-
-	t_mlx = mlx_initial(argc, argv);
-	mlx_key_hook(t_mlx->win, key_hook, t_mlx);
-	mlx_loop_hook(t_mlx->mlx, my_loop, t_mlx);
-	mlx_hook(t_mlx->win, 17, 1L << 17, destroy_hook, t_mlx);
-	mlx_loop(t_mlx->mlx);
+	if (input_chr == 'C')
+		g_board->collect_count++;
+	else if (input_chr == 'E')
+		g_board->exit_count++;
+	else if (input_chr == 'P')
+		g_board->player_count++;
+	else if (input_chr == '0')
+		g_board->empty_count++;
+	else if (input_chr == '1')
+		g_board->wall_count++;
+	else if (1)
+		return (1);
 	return (0);
 }

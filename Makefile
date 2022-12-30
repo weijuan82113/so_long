@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/30 14:15:27 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/30 15:30:13 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,11 @@ UNAME			=	$(shell uname)
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror \
 					-I$(INCLUDES_DIR) -I$(LIBFT_INC) -I$(MLX_INC)
+
+ifdef WITH_TEST
+#	CFLAGS		+= -g -fsanitize=address -fsanitize=undefined
+	CFLAGS		+= -D LESKS
+endif
 
 MAIN			=	./main.c
 MAIN_OBJ		=	$(MAIN:.c=.o)
@@ -61,6 +66,33 @@ SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										)
 SL_OBJS			=	$(SL_SRCS:.c=.o)
 
+##so_long_bonus
+SL_BONUS_DIR			=	./srcs/bonus
+SL_BONUS_SRCS			=	$(addprefix $(SL_BONUS_DIR),/map_initial.c		\
+													/ft_error.c				\
+													/object_validation.c	\
+													/wall_valiation.c		\
+													/map_validation.c		\
+													/bfs_validation.c		\
+													/mlx_initial.c			\
+													/img_lstnew.c			\
+													/img_lstadd_back.c		\
+													/win_initial.c			\
+													/key_hook.c				\
+													/my_loop.c				\
+													/game_over.c			\
+													/destroy_hook.c			\
+													/free_all.c				\
+													/bfs_obj_initial.c		\
+													/graph_create.c			\
+													/edge_initial.c			\
+													/free_graph.c			\
+													/sprite_lstnew.c		\
+													/die_lstnew.c			\
+													/attack_lstnew.c		\
+													/enemy_move.c			\
+													)
+SL_BONUS_OBJS			=	$(SL_SRCS:.c=.o)
 
 all: libft_make mlx_make $(NAME)
 
@@ -85,4 +117,7 @@ fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
+
+test:
+	@make re all WITH_TEST=1
 

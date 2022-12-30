@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 14:15:33 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 15:05:19 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ typedef struct s_mlx
 	t_img			*img_sprite;
 	t_img			*img_die;
 	t_img			*img_attack;
+	char			*step;
+	char			*enemy;
 	t_game_board	*g;
 }					t_mlx;
 
