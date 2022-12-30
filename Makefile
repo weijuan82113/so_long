@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/30 17:17:44 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/30 17:38:23 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,12 @@ LIBFT_LIB		=	-L $(LIBFT_DIR) -lft
 ##minilibx
 MLX_DIR			=	./minilibx-linux
 MLX_INC			=	$(MLX_DIR)
+ifeq ($(UNAME), Darwin)
 MLX_LIB			=	-L $(MLX_DIR) -lmlx_$(UNAME) -L/usr/X11R6/lib -lX11 -lXext -lm	\
 						 -framework OpenGL -framework AppKit
+else
+MLX_LIB			=	-L $(MLX_DIR) -lmlx_$(UNAME) -L/usr/X11R6/lib -lX11 -lXext -lm
+endif
 
 ##so_long
 SL_DIR			=	./srcs
