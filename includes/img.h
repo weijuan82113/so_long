@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:04:52 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 13:59:41 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 16:28:49 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # define EM_PATH			"./images/empty"
 # define EX_PATH			"./images/exit"
 # define WA_PATH			"./images/wall"
-# define CO_PATH			"./images/enemy"
+# define EN_PATH			"./images/enemy"
+# define CO_PATH			"./images/collectible"
+# define OP_PATH			"./images/open"
 # define EO_PATH			"./images/exit_open"
 # define KL_PATH			"./images/kill"
 # define P1_PATH			"./images/p1_"

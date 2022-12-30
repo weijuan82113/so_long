@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:10:15 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:02:52 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 15:51:45 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_img	*img_lstnew(void *mlx, char object, char *size)
 		img_head->img_path = ft_strjoin(EM_PATH, size);
 	else if (object == 'G')
 		img_head->img_path = ft_strjoin(EO_PATH, size);
-	else if (object == 'K')
-		img_head->img_path = ft_strjoin(KL_PATH, size);
+	else if (object == 'O')
+		img_head->img_path = ft_strjoin(OP_PATH, size);
 	img_head->obj = object;
 	img_head->img = mlx_xpm_file_to_image(mlx, img_head->img_path, &img_head->w,
 			&img_head->h);

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 00:35:35 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 14:02:55 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 16:55:55 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define A2							'8'
 # define A3							'9'
 # define A4							'A'
-# define attack_frame		 		2
-# define enemy_frame				40
+# define ATTACK_FRAME		 		2
+# define ENEMY_FRAME				40
 
 #endif

@@ -6,11 +6,14 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/30 15:30:13 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/30 17:17:44 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	so_long
+
+BONUS_NAME		=	so_long_bonus
+
 UNAME			=	$(shell uname)
 
 CC				=	cc
@@ -19,7 +22,7 @@ CFLAGS			=	-Wall -Wextra -Werror \
 
 ifdef WITH_TEST
 #	CFLAGS		+= -g -fsanitize=address -fsanitize=undefined
-	CFLAGS		+= -D LESKS
+	CFLAGS		+= -D LEAKS
 endif
 
 MAIN			=	./main.c
@@ -60,9 +63,6 @@ SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										/edge_initial.c			\
 										/free_graph.c			\
 										/sprite_lstnew.c		\
-										/die_lstnew.c			\
-										/attack_lstnew.c		\
-										/enemy_move.c			\
 										)
 SL_OBJS			=	$(SL_SRCS:.c=.o)
 
@@ -92,13 +92,17 @@ SL_BONUS_SRCS			=	$(addprefix $(SL_BONUS_DIR),/map_initial.c		\
 													/attack_lstnew.c		\
 													/enemy_move.c			\
 													)
-SL_BONUS_OBJS			=	$(SL_SRCS:.c=.o)
+SL_BONUS_OBJS			=	$(SL_BONUS_SRCS:.c=.o)
 
 all: libft_make mlx_make $(NAME)
 
 $(NAME): $(MINILIBX) $(MAIN_OBJ) $(SL_OBJS)
 	$(CC) $(CFLAGS) $(MAIN_OBJ) $(SL_OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
 
+bonus: libft_make mlx_make $(BONUS_NAME)
+
+$(BONUS_NAME): $(MINILIBX) $(MAIN_OBJ) $(SL_BONUS_OBJS)
+	$(CC) $(CFLAGS) $(MAIN_OBJ) $(SL_BONUS_OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
 
 libft_make:
 	make -C $(LIBFT_DIR)
@@ -111,13 +115,20 @@ clean:
 	make -C $(MLX_DIR) clean
 	rm -f ${MAIN_OBJ}
 	rm -f ${SL_OBJS}
+	rm -f ${SL_BONUS_OBJS}
 
 fclean: clean
 	make -C $(LIBFT_DIR) fclean
-	rm -f ${NAME}
+	rm -f ${NAME} $(BONUS_NAME)
 
 re: fclean all
+
+norm:
+	@norminette -v
+	norminette $(LIBFT_DIR) $(INCLUDES_DIR) $(SL_DIR) $(SL_BONUS_DIR)
 
 test:
 	@make re all WITH_TEST=1
 
+bonus_test:
+	make bonus WITH_TEST=1

@@ -6,20 +6,20 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 23:54:33 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:10:37 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 16:04:51 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	enemy_kill(t_game_board *g, int enemy_p)
+static void	collectible_open(t_game_board *g, int enemy_p)
 {
 	t_node	*obj;
 	char	**map;
 
 	obj = g->judge_obj;
 	map = g->map;
-	map[enemy_p / g->x][enemy_p % g->x] = 'K';
+	map[enemy_p / g->x][enemy_p % g->x] = 'O';
 	while (*(int *)obj->content != enemy_p)
 		obj = obj->next;
 	*(int *)obj->content = 0;
@@ -36,13 +36,13 @@ static void	player_attack(t_mlx *t_mlx)
 	map = t_mlx->g->map;
 	t_mlx->g->attack = 1;
 	if (map[(p - x) / x][(p - x) % x] == 'C')
-		enemy_kill(t_mlx->g, p - x);
+		collectible_open(t_mlx->g, p - x);
 	if (map[(p + x) / x][(p + x) % x] == 'C')
-		enemy_kill(t_mlx->g, p + x);
+		collectible_open(t_mlx->g, p + x);
 	if (map[(p - 1) / x][(p - 1) % x] == 'C')
-		enemy_kill(t_mlx->g, p - 1);
+		collectible_open(t_mlx->g, p - 1);
 	if (map[(p + 1) / x][(p + 1) % x] == 'C')
-		enemy_kill(t_mlx->g, p + 1);
+		collectible_open(t_mlx->g, p + 1);
 }
 
 int	move_judge(t_game_board *g, int direct)
@@ -61,13 +61,8 @@ int	move_judge(t_game_board *g, int direct)
 		move_p = p + 1;
 	if (g->map[move_p / g->x][move_p % g->x] == 'G')
 		g->exit_count--;
-	else if (g->map[move_p / g->x][move_p % g->x] == 'K')
+	else if (g->map[move_p / g->x][move_p % g->x] == 'O')
 		g->collect_count--;
-	else if (g->map[move_p / g->x][move_p % g->x] == 'C')
-	{
-		g->die = 1;
-		return (0);
-	}
 	else if (g->map[move_p / g->x][move_p % g->x] != '0')
 		return (0);
 	return (1);
@@ -78,7 +73,7 @@ void	player_move(t_game_board *g, int direct)
 	int	p;
 	int	move_p;
 
-	if (g->die == 1)
+	if (g->attack == 1)
 		return ;
 	p = g->position;
 	if (direct == UP)

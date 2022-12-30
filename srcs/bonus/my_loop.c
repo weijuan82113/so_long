@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:50:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:29:15 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 17:02:15 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	my_loop(t_mlx *t_mlx)
 		die_animation(t_mlx);
 	else if (t_mlx->g->attack == 1)
 		attack_animation(t_mlx);
-	else if (t_mlx->g->frame % enemy_frame == 0)
+	else if (t_mlx->g->frame % ENEMY_FRAME == 0)
 		enemy_move(t_mlx);
 	win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 10, 25, RED, "STEP");

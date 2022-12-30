@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 23:54:33 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:10:37 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 16:03:43 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	player_move(t_game_board *g, int direct)
 	int	p;
 	int	move_p;
 
-	if (g->die == 1)
+	if (g->die == 1 || g->attack == 1)
 		return ;
 	p = g->position;
 	if (direct == UP)

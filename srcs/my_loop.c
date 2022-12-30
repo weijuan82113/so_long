@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:50:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:29:15 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 16:03:53 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,14 +110,12 @@ int	my_loop(t_mlx *t_mlx)
 		die_animation(t_mlx);
 	else if (t_mlx->g->attack == 1)
 		attack_animation(t_mlx);
-	else if (t_mlx->g->frame % enemy_frame == 0)
-		enemy_move(t_mlx);
 	win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 10, 25, RED, "STEP");
 	t_mlx->step = ft_itoa(t_mlx->g->step);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 50, 25, RED, t_mlx->step);
 	free(t_mlx->step);
-	mlx_string_put(t_mlx->mlx, t_mlx->win, 80, 25, RED, "ENEMY");
+	mlx_string_put(t_mlx->mlx, t_mlx->win, 80, 25, RED, "ITEM");
 	t_mlx->enemy = ft_itoa(t_mlx->g->collect_count);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 120, 25, RED, t_mlx->enemy);
 	free(t_mlx->enemy);
