@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 23:54:33 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/28 19:41:30 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 14:48:16 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	player_attack(t_mlx *t_mlx)
 	p = t_mlx->g->position;
 	x = t_mlx->g->x;
 	map = t_mlx->g->map;
-	t_mlx->g->attak = 1;
+	t_mlx->g->attack = 1;
 	if (map[(p - x) / x][(p - x) % x] == 'C')
 		enemy_kill(t_mlx->g, p - x);
 	if (map[(p + x) / x][(p + x) % x] == 'C')
@@ -63,6 +63,11 @@ int	move_judge(t_game_board *g, int direct)
 		g->exit_count--;
 	else if (g->map[move_p / g->x][move_p % g->x] == 'K')
 		g->collect_count--;
+	else if (g->map[move_p / g->x][move_p % g->x] == 'C')
+	{
+		g->die = 1;
+		return (0);
+	}
 	else if (g->map[move_p / g->x][move_p % g->x] != '0')
 		return (0);
 	return (1);
@@ -73,6 +78,9 @@ void	player_move(t_game_board *g, int direct)
 	int	p;
 	int	move_p;
 
+	printf("ply move e_attack:%d\n", g->e_attack);fflush(stdout);
+	if (g->die == 1)
+		return ;
 	p = g->position;
 	if (direct == UP)
 		move_p = p - g->x;

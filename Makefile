@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 21:25:46 by wchen             #+#    #+#              #
-#    Updated: 2022/12/22 22:29:47 by wchen            ###   ########.fr        #
+#    Updated: 2022/12/30 14:15:27 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ SL_SRCS			=	$(addprefix $(SL_DIR),/map_initial.c		\
 										/edge_initial.c			\
 										/free_graph.c			\
 										/sprite_lstnew.c		\
+										/die_lstnew.c			\
+										/attack_lstnew.c		\
 										/enemy_move.c			\
 										)
 SL_OBJS			=	$(SL_SRCS:.c=.o)

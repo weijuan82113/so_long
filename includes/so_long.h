@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:45:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/23 03:14:35 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 14:15:33 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,11 @@ typedef struct s_game_board
 	int			position;
 	int			goal_position;
 	int			step;
-	int			attak;
+	int			attack;
+	int			die;
+	int			e_attack;
+	int			e_position;
+	int			frame;
 	t_graph		*graph;
 }			t_game_board;
 
@@ -77,6 +81,8 @@ typedef struct s_mlx
 	void			*win;
 	t_img			*img_head;
 	t_img			*img_sprite;
+	t_img			*img_die;
+	t_img			*img_attack;
 	t_game_board	*g;
 }					t_mlx;
 
@@ -89,6 +95,8 @@ void			bfs_validation(t_game_board *g_board);
 t_mlx			*mlx_initial(int argc, char **argv);
 t_img			*img_lstnew(void *mlx, char object, char* size);
 t_img			*sprite_lstnew(void *mlx, char object, char* size);
+t_img			*die_lstnew(void *mlx, char object, char* size);
+t_img			*attack_lstnew(void *mlx, char object, char* size);
 void			img_lstadd_back(t_img **head, t_img *new);
 void			win_initial(void *mlx, void *win,
 					t_game_board *g, t_img *img_head);

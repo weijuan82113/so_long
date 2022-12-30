@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:50:18 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/28 19:40:51 by wchen            ###   ########.fr       */
+/*   Updated: 2022/12/30 14:48:13 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,72 @@ static void	attack_animation(t_mlx *t_mlx)
 		sprite = sprite->next;
 	}
 	usleep(250000);
-	t_mlx->g->attak = 0;
+	t_mlx->g->attack = 0;
+}
+
+static void	e_attack_animation(t_mlx *t_mlx)
+{
+	t_img			*e_attack;
+	int				ep;
+	void			*s_img;
+	t_game_board	*g;
+
+	e_attack = t_mlx->img_attack;
+	ep = t_mlx->g->e_position;
+	g = t_mlx->g;
+	printf("ep : %d\n", ep);fflush(stdout);
+	while (e_attack != NULL)
+	{
+		s_img = e_attack->img;
+		mlx_put_image_to_window(t_mlx->mlx, t_mlx->win, s_img, (ep % g->x)
+			* g->size, (ep / g->x) * g->size);
+		usleep(100000);
+		e_attack = e_attack->next;
+	}
+	usleep(250000);
+	t_mlx->g->e_attack = 0;
+}
+
+static void	die_animation(t_mlx *t_mlx)
+{
+	t_img			*die;
+	int				p;
+	void			*d_img;
+	t_game_board	*g;
+
+	die = t_mlx->img_die;
+	p = t_mlx->g->position;
+	g = t_mlx->g;
+	while (die != NULL)
+	{
+		printf("test1\n");
+		d_img = die->img;
+		mlx_put_image_to_window(t_mlx->mlx, t_mlx->win, d_img, (p % g->x)
+			* g->size, (p / g->x) * g->size);
+		printf("test2\n");
+		usleep(250000);
+		die = die->next;
+	}
+	sleep(1);
+	game_over(t_mlx, KILLED);
 }
 
 int	my_loop(t_mlx *t_mlx)
 {
-	char *step;
-	char *enemy;
+	char 			*step;
+	char 			*enemy;
+	t_game_board 	*g;
 
-	if (t_mlx->g->attak == 1)
+	g = t_mlx->g;
+	g->frame ++;
+	printf("e_attack %d\n", g->e_attack);
+	if (g->e_attack == 1)
+		e_attack_animation(t_mlx);
+	else if (g->die == 1)
+		die_animation(t_mlx);
+	else if (g->attack == 1)
 		attack_animation(t_mlx);
-	else
+	else if(g->frame % enemy_frame == 0)
 		enemy_move(t_mlx);
 	win_initial(t_mlx->mlx, t_mlx->win, t_mlx->g, t_mlx->img_head);
 	mlx_string_put(t_mlx->mlx, t_mlx->win, 10, 25, RED, "STEP");
