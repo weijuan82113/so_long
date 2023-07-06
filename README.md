@@ -9,12 +9,22 @@ Use minilibx to design a 2D game
 - Xquartz(2.8.3) `$ brew xquartz`
 
 ## Usage
+- clone
 ```
-git clone ...
+git clone {url} so_long
 cd so_long
-make
-./so_long ./ok_12x8.ber`
 ```
+- make mandatory part(without enemy movement)
+```
+make
+./so_long ./maps/ok_12x8.ber`
+```
+- make bonus part(add BSF to let enemy movement)
+```
+make bonus
+./so_long_bonus ./maps/ok_12x8.ber
+```
+
 ## Feature
 - Graphic management
 - Use BSF algorithm to confirm the validation check of the input map
