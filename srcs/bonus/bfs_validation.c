@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:55:14 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 15:12:55 by wchen            ###   ########.fr       */
+/*   Updated: 2024/02/08 20:18:40 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,44 +81,47 @@ void	is_achievable(t_game_board *g, int *visited)
 		ft_error(ACHIEVE_ERR);
 }
 
+//Print the graph
+void	printGraph(t_graph *graph)
+{
+	int		v;
+	t_node	*temp;
+
+	for (v = 0; v < graph->num_vertex; v++)
+	{
+		temp = graph->adj_lsts[v];
+		printf("\n Vertex %d\n: ", v);
+		while (temp)
+		{
+			printf("%d -> ", *(int *)temp->content);
+			temp = temp->next;
+		}
+		printf("\n");
+	}
+}
+
+void printMap(int *visited,int size, int x)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		//printf("i : %d\n", i);
+		printf("%d", visited[i]);fflush(stdout);
+		if(i % x == x-1)
+			printf("\n");fflush(stdout);
+		i ++;
+	}
+	printf("-------finished-------\n");fflush(stdout);
+}
+
 void	bfs_validation(t_game_board *g)
 {
 	g->graph = graph_create(g->x * g->y, g->map, g->x);
 	edge_initial(g->graph, g);
+	printGraph(g->graph);
 	is_collectable(g, g->graph->visited);
 	is_achievable(g, g->graph->visited);
 }
-//Print the graph
-// void	printGraph(t_graph *graph)
-// {
-// 	int		v;
-// 	t_node	*temp;
 
-// 	for (v = 0; v < graph->num_vertex; v++)
-// 	{
-// 		temp = graph->adj_lsts[v];
-// 		printf("\n Vertex %d\n: ", v);
-// 		while (temp)
-// 		{
-// 			printf("%d -> ", *(int *)temp->content);
-// 			temp = temp->next;
-// 		}
-// 		printf("\n");
-// 	}
-// }
-
-// void printMap(int *visited,int size, int x)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		//printf("i : %d\n", i);
-// 		printf("%d", visited[i]);fflush(stdout);
-// 		if(i % x == x-1)
-// 			printf("\n");fflush(stdout);
-// 		i ++;
-// 	}
-// 	printf("-------finished-------\n");fflush(stdout);
-// }
